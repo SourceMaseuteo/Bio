@@ -26,6 +26,21 @@ body {
     color: var(--text-normal)
 }
 
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #141414;
+    cursor: pointer;
+}
+
+.full-screen-div {
+    height: 100%;
+    background-color: rgb(30, 30, 30);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #loading {
     position: fixed;
     z-index: 999;
