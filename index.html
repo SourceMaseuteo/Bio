@@ -27,12 +27,39 @@
 </head>
 
 <body>
+  <audio id="background-music" loop>
+    <source src="assets/sound/discord.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    function playMusic() {
+        var audio = document.getElementById('background-music');
+        audio.volume = 0.3;
+        audio.play().then(() => {
+          document.getElementById('play-music').style.display = 'none';
+        }).catch(error => {
+            console.log('Autoplay failed:', error);
+        });
+    }
+
+    window.addEventListener('load', function() {
+        var audio = document.getElementById('background-music');
+        audio.play().catch(() => {
+            document.getElementById('play-music');
+        });
+    });
+
+    window.onload = function() {
+            playMusic();
+        };
+</script>
+
   <div id="loading">
     <div></div>
   </div>
   <div id="wrapper">
     <div id="card">
-     <!--===== DISCORD PROFILE BANNER | I recommend using an Imgur link (BBCode (Forums) like this: https://i.imgur.com/Jd3KfCU.png =====-->
       <div id="banner" style="background-image: url(https://i.imgur.com/7nQ5fhv.gif);"></div> 
       <div id="user-info">
         <div id="avatar">
@@ -42,40 +69,21 @@
           <div id="status"></div>
         </div>
 
-        <!--===== BADGES =====-->
-
         <div id="badges">
         </div>
-
-        <!--===== NAME =====-->
 
         <div id="username">Source</div>
       </div>
       <hr/>
-
-      <!--===== ABOUT ME =====-->
 
       <div id="about">
         <h4>About me</h4>
         <p>reverse engineer 󠁛󠀣󠀲󠀶󠀳󠀳󠀴󠀲󠀬󠀣󠁡󠀴󠁢󠁣󠁦󠁦󠁝 •  game hacker</p>
         <br>
         <p>i love you all ♥</p>
+        <br>
+        <button id="play-music" onclick="playMusic()">Press me</button>
       </div>
-
-
-      <!--===== SOCIAL =====-->
-
-      <!--<div id="social">
-        <a class="social-link" href="https://steamcommunity.com/id/" target="_blank">
-          <img src="assets/images/steam.jpg" alt="Steam" />
-        </a>
-
-        <a class="social-link" href="https://steamcommunity.com/id/" target="_blank">
-          <img src="assets/images/steam.jpg" alt="Steam" />
-        </a>
-                 <!--==== To create more, just copy from "<a" to "</a>"
-                           and paste then edit as you want ====-->
-      <!--</div>-->
     </div>
   </div>
 
